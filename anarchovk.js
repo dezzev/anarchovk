@@ -1,4 +1,4 @@
-// anarchovk v2.1
+// anarchovk v2.2
 // github.com/dezzev/
 
 
@@ -36,27 +36,43 @@ function method(access_token, method_name, method_params={}, callback=null, vers
 	});
 };
 
-function groupLongPoll(access_token, group_id, callback, wait=STANDARD_LongPollWait, version=STANDARD_Version){
+function groupLongPoll(access_token, group_id, callback, wait=STANDARD_LongPollWait, version=STANDARD_Version, ts=null){
 	method(access_token, "groups.getLongPollServer", {"group_id": group_id}, function (LongPollServer){
 		const response = LongPollServer.response;
-		http.get(response.server + "?act=a_check&key=" + response.key + "&ts=" + response.ts + "&wait=" + wait, LongPollResponse => {
+		var currentTs = "";
+		if (ts != null){
+			currentTs = ts;
+		}
+		else{
+			currentTs = response.ts;
+		};
+		http.get(response.server + "?act=a_check&key=" + response.key + "&ts=" + currentTs + "&wait=" + wait, LongPollResponse => {
 			LongPollResponse.setEncoding("utf8")
 			LongPollResponse.on("data", data => {
-				callback(JSON.parse(data));
-				groupLongPoll(access_token, group_id, callback);
+				const dataObject = JSON.parse(data);
+				callback(dataObject);
+				groupLongPoll(access_token, group_id, callback, wait, version, dataObject.ts);
 			});
 		});
 	});
 };
 
-function userLongPoll(access_token, callback, wait=STANDARD_LongPollWait, mode=STANDARD_LongPollMode, version=STANDARD_LongPollVersion){
+function userLongPoll(access_token, callback, wait=STANDARD_LongPollWait, mode=STANDARD_LongPollMode, version=STANDARD_LongPollVersion, ts=null){
 	method(access_token, "messages.getLongPollServer", {}, LongPollServer => {
 		const response = LongPollServer.response;
-		http.get("https://" + response.server + "?act=a_check&key=" + response.key + "&ts=" + response.ts + "&wait=" + wait + "&mode=" + mode + "&version=" + version, LongPollResponse => {
+		var currentTs = "";
+		if (ts != null){
+			currentTs = ts;
+		}
+		else{
+			currentTs = response.ts;
+		};
+		http.get("https://" + response.server + "?act=a_check&key=" + response.key + "&ts=" + currentTs + "&wait=" + wait + "&mode=" + mode + "&version=" + version, LongPollResponse => {
 			LongPollResponse.setEncoding("utf8")
 			LongPollResponse.on("data", data => {
-				callback(JSON.parse(data));
-				userLongPoll(access_token, callback, wait, mode, version);
+				const dataObject = JSON.parse(data);
+				callback(dataObject);
+				userLongPoll(access_token, callback, wait, mode, version, dataObject.ts);
 			});
 		});
 	});
