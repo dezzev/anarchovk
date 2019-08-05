@@ -1,0 +1,24 @@
+{
+  "name": "anarchovk",
+  "version": "2.2.0",
+  "description": "Easy VK API module for Node.js",
+  "main": "anarchovk.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dezzev/anarchovk.git"
+  },
+  "keywords": [
+    "vk",
+    "vkontakte",
+    "vkapi",
+    "vkontakte-api",
+    "vk-api",
+    "longpoll"
+  ],
+  "author": "dezzev",
+  "license": "ANUS",
+  "bugs": {
+    "url": "https://github.com/dezzev/anarchovk/issues"
+  },
+  "homepage": "https://github.com/dezzev/anarchovk#readme"
+}
