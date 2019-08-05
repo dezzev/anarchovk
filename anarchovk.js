@@ -37,7 +37,7 @@ function method(access_token, method_name, method_params={}, callback=null, vers
 };
 
 function groupLongPoll(access_token, group_id, callback, wait=STANDARD_LongPollWait, version=STANDARD_Version, ts=null){
-	method(access_token, "groups.getLongPollServer", {"group_id": group_id}, function (LongPollServer){
+	method(access_token, "groups.getLongPollServer", {"group_id": group_id}, LongPollServer => {
 		const response = LongPollServer.response;
 		var currentTs = "";
 		if (ts != null){
