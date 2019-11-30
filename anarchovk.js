@@ -9,7 +9,7 @@ const http = require("https");
 const STANDARD_LongPollWait = 25; // Стандартное время ожидания лонгполла
 const STANDARD_LongPollVersion = 3; // Стандартная версия User Long Poll
 const STANDARD_LongPollMode = 2; // Доп. опции лонгполла по стандарту
-const STANDARD_Version = "5.101"; // Версия VK Api
+const STANDARD_Version = "5.103"; // Версия VK Api
 
 
 function VKError(error_code, error_msg, request_params){
@@ -39,11 +39,8 @@ function method(access_token, method_name, method_params={}, callback=null, vers
 function groupLongPoll(access_token, group_id, callback, wait=STANDARD_LongPollWait, version=STANDARD_Version, ts=null){
 	method(access_token, "groups.getLongPollServer", {"group_id": group_id}, LongPollServer => {
 		const response = LongPollServer.response;
-		var currentTs = "";
-		if (ts != null){
-			currentTs = ts;
-		}
-		else{
+		var currentTs = ts;
+		if (ts == null){
 			currentTs = response.ts;
 		};
 		http.get(response.server + "?act=a_check&key=" + response.key + "&ts=" + currentTs + "&wait=" + wait, LongPollResponse => {
