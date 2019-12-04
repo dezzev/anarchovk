@@ -26,7 +26,7 @@
 
 
 > I am Gunnery Sergeant Hartman, your Senior Drill Instructor. From now on, you will speak only when spoken to, and the first and last words out of your filthy sewers will be "Sir!" Do you maggots understand that?
-> -- Сержант Хартман
+> <br> - Сержант Хартман
 
 **АЛЕРТ! Если вы никогда не работали с VK Api, мне вас искренне жаль. Покиньте эту страницу.**
 
