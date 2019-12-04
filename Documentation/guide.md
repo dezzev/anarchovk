@@ -37,10 +37,10 @@
  - groupLongPoll(токен, id_группы, *колбэк*)
 
 И сразу же маленькое FAQ:
-[Что такое метод?](https://vk.com/dev/methods)
-[Что такое  Bots Long Poll API?](https://vk.com/dev/bots_longpoll) 
-[Что такое  User Long Poll API?](https://vk.com/dev/using_longpoll) 
-[Почему функция называется groupLongPoll, а не botsLongPoll? ](http://lurkmore.to/%D0%98%D0%B1%D0%BE_%D0%BD%D0%B5%D1%85%D1%83%D0%B9)
+- [Что такое метод?](https://vk.com/dev/methods)
+- [Что такое  Bots Long Poll API?](https://vk.com/dev/bots_longpoll) 
+- [Что такое  User Long Poll API?](https://vk.com/dev/using_longpoll) 
+- [Почему функция называется groupLongPoll, а не botsLongPoll? ](http://lurkmore.to/%D0%98%D0%B1%D0%BE_%D0%BD%D0%B5%D1%85%D1%83%D0%B9)
 
 Функция method(), как ни странно, вызывает метод.
 
