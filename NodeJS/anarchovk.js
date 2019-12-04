@@ -1,4 +1,4 @@
-// anarchovk JS v2.2
+// anarchovk.js v2.2.1
 // github.com/dezzev/
 
 
