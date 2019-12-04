@@ -8,5 +8,16 @@
  - [Примеры и документация anarchovk](https://github.com/dezzev/anarchovk/blob/master/Documentation/guide.md)
  - [Документация VK API](https://vk.com/dev/manuals)
 
+### Установка
+
+
+**На Python:**
+
+    pip install anarchovk
+
+**На Node.js:**
+
+    npm install anarchovk
+
 Мы создаем на 100% простой и компактный модуль для работы с социальной сетью VK.
 Если вы хотите нас поддержать, поддерживайте сейчас, ведь сегодня это бесплатно!
