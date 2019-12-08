@@ -1,4 +1,4 @@
-# anarchovk Python 2.0
+# anarchovk
 # github.com/dezzev/
 
 
