@@ -5,13 +5,13 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="anarchovk",
-    version="2.0.1",
+    version="2.0.2",
     author="dezzev",
     description="Easy VK API module for Python",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/dezzev/anarchovk",
-    packages=setuptools.find_packages(),
+    packages=["anarchovk"],
     install_requires=['requests'],
     license="ANUS",
     classifiers=[
